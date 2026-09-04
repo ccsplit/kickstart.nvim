@@ -694,13 +694,16 @@ do
       settings = {
         pylsp = {
           plugins = {
+            black = { enabled = true },
+            autopep8 = { enabled = false },
+            yapf = { enabled = false },
             pyflakes = { enabled = true },
             mccabe = { enabled = true },
             pycodestyle = { enabled = true }
           }
         }
       }
-    }
+    },
     -- pyright = {},
     rust_analyzer = {},
     --
