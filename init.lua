@@ -687,9 +687,13 @@ do
   ---@type table<string, vim.lsp.Config>
   local servers = {
     -- clangd = {},
-    -- gopls = {},
+    csharp_ls = {},
+    gopls = {},
+    kotlin_lsp = {},
+    pydocstyle = {},
+    pyflakes = {},
     -- pyright = {},
-    -- rust_analyzer = {},
+    rust_analyzer = {},
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
     --    https://github.com/pmizio/typescript-tools.nvim
@@ -742,7 +746,11 @@ do
   }
 
   -- Automatically install LSPs and related tools to stdpath for Neovim
-  require('mason').setup {}
+  require('mason').setup {
+    firewall = {
+      enabled = true
+    }
+  }
 
   -- Ensure the servers and tools above are installed
   --
