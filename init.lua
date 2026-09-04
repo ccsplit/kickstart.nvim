@@ -690,8 +690,17 @@ do
     csharp_ls = {},
     gopls = {},
     kotlin_lsp = {},
-    pydocstyle = {},
-    pyflakes = {},
+    pylsp = {
+      settings = {
+        pylsp = {
+          plugins = {
+            pyflakes = { enabled = true },
+            mccabe = { enabled = true },
+            pycodestyle = { enabled = true }
+          }
+        }
+      }
+    }
     -- pyright = {},
     rust_analyzer = {},
     --
@@ -906,7 +915,7 @@ do
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
-  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+  local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', "csharp", "python" }
   require('nvim-treesitter').install(parsers)
 
   ---@param buf integer
